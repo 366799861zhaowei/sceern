@@ -31,7 +31,7 @@ export default {
     components:{Food,Clocking,Life},
     data() {
         return {
-            tabsValue:'food'
+            tabsValue:'clocking'
         }
     },
     computed: {

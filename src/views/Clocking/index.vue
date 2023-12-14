@@ -15,8 +15,27 @@
                 </div>
             </template>
             <template #mid>
-                <div>
-                    应出勤人数
+                <div class="child-num">
+                    <div class="c-n-item">
+                        <div class="item-title">
+                            应出勤人数 (人)
+                        </div>
+                        <div class="item-num-box">
+                            <div class="string-item" v-for="(item,index) in test" :key="index">
+                                {{ item }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-n-item color">
+                        <div class="item-title">
+                            实际勤人数 (人)
+                        </div>
+                        <div class="item-num-box">
+                            <div class="string-item color" v-for="(item,index) in test" :key="index">
+                                {{ item }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </template>
         </Layout>
@@ -32,6 +51,7 @@ export default {
     components: { Time, Rate, Condition },
     data() {
         return {
+            test:'280'
         }
     },
     computed: {
@@ -46,4 +66,39 @@ export default {
 }
 </script>
   
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+    .child-num{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 30px;
+        .c-n-item{
+            width: 255px;
+            height: 150px;
+            color: rgba(0, 255, 252, 1);
+            text-align: center;
+            &.color{
+                color: rgba(35, 154, 255, 1);;
+            }
+        }
+        .item-title{
+            margin-bottom: 10px;
+        }
+        .item-num-box{
+            display: flex;
+            justify-content: center;
+            .string-item{
+                color: #fff;
+                font-size: 48px;
+                font-weight: 700;
+                padding: 2px 5px;
+                background-color: rgba(0, 255, 252, 1);
+                border-radius: 3px;
+                margin: 0 7px;
+                &.color{
+                background-color: rgba(35, 154, 255, 1);;
+            }
+            }
+        }
+    }
+</style>
