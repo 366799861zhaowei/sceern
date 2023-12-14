@@ -12,7 +12,7 @@
 import { getEatUpRank } from "@/service/baseInfo.js";
 import CommonBar from '@/views/components/CommonBar.vue'
 export default {
-    name: "PeopleNum",
+    name: "EatUpRank",
     components: { CommonBar },
     data() {
         return {

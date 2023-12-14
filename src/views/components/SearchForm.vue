@@ -2,7 +2,7 @@
     <div class="form-wrapper">
         <div class="form">
             <div class="form-item" v-if="gradeSearch">
-                <div class="item-label">选择班段:</div>
+                <div class="item-label">班段:</div>
                 <div class="item-input">
                     <el-select v-model="searchData.gradeId" placeholder="请选择" size="small"
                         @change="handleGradeSelectChange">
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="form-item" v-if="classSearch">
-                <div class="item-label">选择班级:</div>
+                <div class="item-label">班级:</div>
                 <div class="item-input">
                     <el-select v-model="searchData.clazzGroupId" placeholder="请选择" size="small">
                         <el-option v-for="item in classOption" :key="item.value" :label="item.label" :value="item.value">
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="form-item" v-if="time">
-                <div class="item-label">选择时间:</div>
+                <div class="item-label">时间:</div>
                 <div class="item-input">
                     <el-select v-model="searchData.timeLabel" placeholder="请选择" size="small" @change = 'handleTimeChange'>
                         <el-option v-for="item in timeOption" :key="item.label" :label="item.label" :value="item.label">

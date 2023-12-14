@@ -25,4 +25,7 @@ export function getAllergen (data) {
 export function getEatUpRank (data) {
     return axios.post(api.getEatUpRank,data,config)
 }
+export function getEatUp (data) {
+    return axios.post(api.getEatUp,data,config)
+}
 
