@@ -12,7 +12,7 @@
 import { getStandardCondition } from "@/service/baseInfo.js";
 import CommonBar from '@/views/components/CommonBar.vue'
 export default {
-    name: "StandardCondition",
+    name: "Shit",
     components:{CommonBar},
     data() {
         return {

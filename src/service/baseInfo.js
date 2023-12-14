@@ -28,4 +28,13 @@ export function getEatUpRank (data) {
 export function getEatUp (data) {
     return axios.post(api.getEatUp,data,config)
 }
+export function getAttendschool (data) {
+    return axios.post(api.getAttendschool,data,config)
+}
+export function getStandardCondition (data) {
+    return axios.post(api.getStandardCondition,data,config)
+}
+export function getSleep (data) {
+    return axios.post(api.getSleep,data,config)
+}
 

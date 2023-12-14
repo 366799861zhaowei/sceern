@@ -8,7 +8,7 @@
             <div class="base-mind-bg item"></div>
             <div class="base-item-wrapper">
                 <div class="base-item" v-for="(item, index) in mindOtpion" :key="index"
-                    :style="{ transform: `translateX(-50%) rotate(${22 + (index * 45)}deg)` }">{{ item.label }}</div>
+                    :style="{ transform: `translateX(-50%) rotate(${22 + (index * 45)}deg)` }" @click="handleChangeTab(item.value)">{{ item.label }}</div>
             </div>
             <div class="base-mind-bg base-mind-center">
                 <div class="base-mind-center-num">1111</div>
@@ -18,6 +18,7 @@
         <Food v-if="tabsValue ==='food'"/>
         <Clocking v-if="tabsValue ==='clocking'"/>
         <Life v-if="tabsValue ==='life'"/>
+        <Sport v-if="tabsValue ==='sport'"/>
     </div>
 </template>
   
@@ -26,9 +27,10 @@ import { mindCircleLabel } from "./config";
 import Food from '@/views/Food/index.vue'
 import Clocking from '@/views/Clocking/index.vue'
 import Life from '@/views/Life/index.vue'
+import Sport from '@/views/Sport/index.vue'
 export default {
     name: "index",
-    components:{Food,Clocking,Life},
+    components:{Food,Clocking,Life,Sport},
     data() {
         return {
             tabsValue:'food'
@@ -42,7 +44,9 @@ export default {
     mounted() {
     },
     methods: {
-
+        handleChangeTab(val){
+            this.tabsValue = val
+        }
     }
 
 }
@@ -100,7 +104,7 @@ export default {
         background-size: 657px 658px;
         background-position: center;
         background-repeat: no-repeat;
-
+        z-index: 99999;
         .base-mind-bg {
             position: absolute;
             top: 50%;
@@ -149,6 +153,7 @@ export default {
                 text-align: center;
                 line-height: 60px;
                 cursor: pointer;
+
             }
         }
 
