@@ -19,6 +19,13 @@
                     <Weather/>
                 </div>
             </template>
+            <template #right>
+                <div>
+                    <Panel title="饮水情况">
+                        <DrinkSituation /> 
+                    </Panel>
+                </div>
+            </template>
         </Layout>
     </div>
 </template>
@@ -28,9 +35,10 @@ import Standard from './components/Standard';
 import StandardCondition  from './components/StandardCondition ';
 import SightCondition from './components/SightCondition';
 import Weather from './components/Weather';
+import DrinkSituation from './components/DrinkSituation';
 export default {
     name: "Life",
-    components: { Standard, StandardCondition , SightCondition,Weather },
+    components: { Standard, StandardCondition , SightCondition,Weather,DrinkSituation },
     data() {
         return {
         }
