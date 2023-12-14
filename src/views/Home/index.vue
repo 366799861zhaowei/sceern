@@ -15,18 +15,21 @@
                 <div class="base-mind-center-label">2222</div>
             </div>
         </div>
-        <Food/>
+        <Food v-if="tabsValue ==='food'"/>
+        <Clocking v-if="tabsValue ==='clocking'"/>
     </div>
 </template>
   
 <script>
 import { mindCircleLabel } from "./config";
 import Food from '@/views/Food/index.vue'
+import Clocking from '@/views/Clocking/index.vue'
 export default {
     name: "index",
-    components:{Food},
+    components:{Food,Clocking},
     data() {
         return {
+            tabsValue:'food'
         }
     },
     computed: {
