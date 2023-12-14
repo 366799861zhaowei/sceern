@@ -4,18 +4,20 @@
             <SearchForm gradeSearch v-model="formVlaue" />
         </div>
         <div class="content">
-
+            <Cricle :data="chartData"></Cricle>
         </div>
     </div>
 </template>
 <script>
 import { pelpleNumTableColumn } from '../config.js'
 import { getNutrition } from "@/service/baseInfo.js";
+import Cricle from '@/views/components/Cricle.vue'
 export default {
     name: "PeopleNum",
+    components:{Cricle},
     data() {
         return {
-            tableData: [],
+            chartData:[],
             formVlaue: {
                 gradeId: 'all'
             },
@@ -44,7 +46,7 @@ export default {
         async getCount() {
             const data = await getNutrition({ ...this.formVlaue })
             if (data) {
-                console.log(data, 'data');
+                console.log(data, 'data----------');
             }
         }
     }

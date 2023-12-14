@@ -29,7 +29,7 @@ import Rate from './components/Rate';
 import Condition from './components/Condition';
 export default {
     name: "Food",
-    components: { Time ,Rate,Condition},
+    components: { Time, Rate, Condition },
     data() {
         return {
         }

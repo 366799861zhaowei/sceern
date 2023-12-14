@@ -16,4 +16,7 @@ export function getGradeDict (data) {
 export function getNutrition (data) {
     return axios.post(api.getNutrition,data,config)
 }
+export function getStandardBody (data) {
+    return axios.post(api.getStandardBody,data,config)
+}
 
