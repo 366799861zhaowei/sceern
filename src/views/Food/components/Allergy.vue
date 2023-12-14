@@ -17,7 +17,7 @@ export default {
     components: { CommonBar },
     data() {
         return {
-            chartData: [],
+            chartData: {},
             formVlaue: {
                 gradeId: 'all',
                 clazzGroupId: ''

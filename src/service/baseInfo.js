@@ -22,4 +22,7 @@ export function getStandardBody (data) {
 export function getAllergen (data) {
     return axios.post(api.getAllergen,data,config)
 }
+export function getEatUpRank (data) {
+    return axios.post(api.getEatUpRank,data,config)
+}
 

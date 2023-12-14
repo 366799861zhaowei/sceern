@@ -13,6 +13,10 @@ export default {
             default: () => {
                 return {}
             }
+        },
+        cross: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -21,11 +25,33 @@ export default {
         };
     },
     computed: {
+        barShaft() {
+            if (!this.cross) {
+                return {
+                    xAxis: {
+                        type: 'category',
+                        data: this.data.x
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                }
+            } else {
+                return {
+                    xAxis: {
+                        type: 'value'
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: this.data.x
+                    },
+                }
+            }
+        }
     },
     watch: {
         data: {
             handler() {
-
                 this.$nextTick(async () => {
                     await this.chartssize(this.$refs["wrapper"], this.$refs.echart); //必须等图表容器宽高获取后才能渲染
                     this.initChart(); //必须等dom元素挂载完后才能进行图表初始化
@@ -54,7 +80,7 @@ export default {
                 // console.log("宽：", wi, "高：", hi);
                 charts.style.width = wi;
                 charts.style.height = hi;
-                console.log(wi,hi);
+                console.log(wi, hi);
                 resolve();
             });
         },
@@ -63,13 +89,14 @@ export default {
             console.log(this.data, '----------------------');
             this.myChart = this.echarts.init(this.$refs.echart);
             let option = {
-                xAxis: {
-                    type: 'category',
-                    data: this.data.x
+                grid: {
+                    left: '0',
+                    right: '0',
+                    bottom: '0',
+                    top: '0',
+                    containLabel: true // 这个属性确保标签不会溢出容器
                 },
-                yAxis: {
-                    type: 'value'
-                },
+                ...this.barShaft,
                 series: [
                     {
                         data: this.data.y,

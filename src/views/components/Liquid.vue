@@ -1,5 +1,5 @@
 <template>
-  <div class="polo-ball-box" ref="wrapper">
+  <div class="wrapper" ref="wrapper">
     <div class="echart-item" :ref="id" :id="id"></div>
   </div>
 </template>
@@ -136,14 +136,14 @@ export default {
 </script>
 
 <style scoped lang="less">
-.polo-ball-box {
+.wrapper {
   position: relative;
   border: 1px solid #3686e1;
   border-radius: 50%;
   margin: auto;
   margin-bottom: 16px;
 }
-.polo-ball-box::after {
+.wrapper::after {
   position: absolute;
   content: "";
   right: 17px;

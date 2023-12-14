@@ -23,8 +23,8 @@
             <div class="form-item" v-if="time">
                 <div class="item-label">选择时间:</div>
                 <div class="item-input">
-                    <el-select v-model="searchData.timeValue" placeholder="请选择" size="small">
-                        <el-option v-for="item in timeOption" :key="item.label" :label="item.label" :value="item.value">
+                    <el-select v-model="searchData.timeLabel" placeholder="请选择" size="small" @change = 'handleTimeChange'>
+                        <el-option v-for="item in timeOption" :key="item.label" :label="item.label" :value="item.label">
                         </el-option>
                     </el-select>
                 </div>
@@ -60,10 +60,11 @@ export default {
             handler(newValue) {
                 if (newValue) {
                     for (const key in newValue) {
+                        console.log(newValue[key],'newValue[key]newValue[key]');
                         this.$set(
                             this.searchData,
                             key,
-                            newValue[key] ? newValue[key] : ""
+                            newValue[key]
                         )
                     }
                 }
@@ -100,7 +101,6 @@ export default {
             this.GET_CLASS(this.searchData.gradeId)
         },
         handleTime() {
-            const now = new Date().getTime();
 
             // 本日时间戳范围
             const startOfToday = new Date(new Date().setHours(0, 0, 0, 0)).getTime();
@@ -132,6 +132,10 @@ export default {
             ];
 
             return timeRanges;
+        },
+        handleTimeChange(context){
+            console.log(context,'context');
+            this.searchData.timeValue = this.handleTime().find(item => item.label === context).value
         }
     }
 
