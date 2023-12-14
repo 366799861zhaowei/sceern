@@ -42,7 +42,7 @@ export default {
     display: flex;
     align-items: flex-end;
     gap: 25px;
-    padding: 100px 50px 50px;
+    padding: 80px 50px 50px;
 
     .layout-left {
         width: 550px;

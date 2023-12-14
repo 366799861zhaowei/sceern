@@ -46,7 +46,6 @@ export default {
         async getCount() {
             const data = await getNutrition({ ...this.formVlaue })
             if (data) {
-                console.log(data, 'data----------');
                 let arr = []
                 data.forEach(item=>{
                     arr.push({...item,name:item.typeStr})
@@ -84,7 +83,7 @@ export default {
 
     .content {
         width: 100%;
-        height: 300px;
+        height: 200px;
     }
 }
 </style>
