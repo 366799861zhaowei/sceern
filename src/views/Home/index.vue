@@ -17,6 +17,7 @@
         </div>
         <Food v-if="tabsValue ==='food'"/>
         <Clocking v-if="tabsValue ==='clocking'"/>
+        <Life v-if="tabsValue ==='life'"/>
     </div>
 </template>
   
@@ -24,9 +25,10 @@
 import { mindCircleLabel } from "./config";
 import Food from '@/views/Food/index.vue'
 import Clocking from '@/views/Clocking/index.vue'
+import Life from '@/views/Life/index.vue'
 export default {
     name: "index",
-    components:{Food,Clocking},
+    components:{Food,Clocking,Life},
     data() {
         return {
             tabsValue:'food'
