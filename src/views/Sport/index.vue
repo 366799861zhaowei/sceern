@@ -3,51 +3,32 @@
         <Layout>
             <template #left>
                 <div>
-                    <Panel title="出入园时间">
+                    <Panel title="开放时间">
                         <Time />
                     </Panel>
-                    <Panel title="出勤率统计">
-                        <Rate />
+                    <Panel title="运动区域使用率">
+                        <UseRate />
                     </Panel>
                     <Panel title="出勤情况统计">
-                        <Condition />
+                        <!-- <Condition /> -->
                     </Panel>
                 </div>
             </template>
             <template #mid>
-                <div class="child-num">
-                    <div class="c-n-item">
-                        <div class="item-title">
-                            应出勤人数 (人)
-                        </div>
-                        <div class="item-num-box">
-                            <div class="string-item" v-for="(item,index) in test" :key="index">
-                                {{ item }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="c-n-item color">
-                        <div class="item-title">
-                            实际勤人数 (人)
-                        </div>
-                        <div class="item-num-box">
-                            <div class="string-item color" v-for="(item,index) in test" :key="index">
-                                {{ item }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Panel title="全校运动分析">
+                        <All />
+                    </Panel>
             </template>
             <template #right>
                 <div>
                     <Panel title="今日实到人数列表">
-                        <List />
+                        <!-- <List /> -->
                     </Panel>
                     <Panel title="出勤率统计">
-                        <Rate />
+                        <!-- <Rate /> -->
                     </Panel>
                     <Panel title="出勤情况统计">
-                        <Condition />
+                        <!-- <Condition /> -->
                     </Panel>
                 </div>
             </template>
@@ -57,12 +38,12 @@
   
 <script>
 import Time from './components/Time';
-import Rate from './components/Rate';
-import Condition from './components/Condition';
-import List from './components/List';
+import UseRate from './components/UseRate';
+import All from './components/All';
+// import List from './components/List';
 export default {
-    name: "Food",
-    components: { Time, Rate, Condition,List },
+    name: "Sport",
+    components: { Time, UseRate, All },
     data() {
         return {
             test:'280'

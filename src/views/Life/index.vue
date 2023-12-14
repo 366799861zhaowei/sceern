@@ -24,6 +24,12 @@
                     <Panel title="饮水情况">
                         <DrinkSituation /> 
                     </Panel>
+                    <Panel title="午休">
+                        <Sleep /> 
+                    </Panel>
+                    <Panel title="大便">
+                        <Shit /> 
+                    </Panel>
                 </div>
             </template>
         </Layout>
@@ -36,9 +42,11 @@ import StandardCondition  from './components/StandardCondition ';
 import SightCondition from './components/SightCondition';
 import Weather from './components/Weather';
 import DrinkSituation from './components/DrinkSituation';
+import Sleep from './components/Sleep';
+import Shit from './components/Shit';
 export default {
     name: "Life",
-    components: { Standard, StandardCondition , SightCondition,Weather,DrinkSituation },
+    components: { Standard, StandardCondition , SightCondition,Weather,DrinkSituation ,Sleep,Shit},
     data() {
         return {
         }

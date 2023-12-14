@@ -47,7 +47,46 @@ export default {
                     },
                 }
             }
-        }
+        },
+        series() {
+            if (Array.isArray(this.data.y)) {
+                return [{
+                    data: this.data.y,
+                    type: 'bar',
+                    backgroundStyle: {
+                        borderRadius: [50, 50, 0, 0]
+                    }
+                }]
+            } else {
+                let arr = []
+                this.data.y.forEach(item => {
+                    arr.push({
+                        name: item.name,
+                        data: item.value,
+                        type: 'bar',
+                        backgroundStyle: {
+                            borderRadius: [50, 50, 0, 0]
+                        }
+                    })
+                })
+                return arr
+            }
+        },
+        legend() {
+            if (Array.isArray(this.data.y)) {
+                return {}
+            } else {
+                let arr = []
+                this.data.y.forEach(item => {
+                    arr.push(
+                        item.name
+                    )
+                })
+                return {
+                    data:arr
+                }
+            }
+        },
     },
     watch: {
         data: {
@@ -90,23 +129,15 @@ export default {
             this.myChart = this.echarts.init(this.$refs.echart);
             let option = {
                 grid: {
-                    left: '0',
-                    right: '0',
-                    bottom: '0',
-                    top: '0',
+                    left: '5',
+                    right: '15',
+                    bottom: '5',
+                    top: '15',
                     containLabel: true // 这个属性确保标签不会溢出容器
                 },
+                legend: this.legend,
                 ...this.barShaft,
-                series: [
-                    {
-                        data: this.data.y,
-                        type: 'bar',
-                        large: true,
-                        backgroundStyle: {
-                            borderRadius: [50, 50, 0, 0]
-                        }
-                    }
-                ]
+                series: this.series
             };
             this.myChart.setOption(option);
         },

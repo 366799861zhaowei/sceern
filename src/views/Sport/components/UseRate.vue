@@ -1,25 +1,19 @@
 <template>
     <div class="wrapper">
-        <div class="header">
-            <SearchForm gradeSearch v-model="formVlaue" />
-        </div>
         <div class="content">
-            <CommonBar :data="chartData"></CommonBar>
+            <CommonBar cross :data="chartData"></CommonBar>
         </div>
     </div>
 </template>
 <script>
-import { getStandardCondition } from "@/service/baseInfo.js";
+import { getAttendschool } from "@/service/baseInfo.js";
 import CommonBar from '@/views/components/CommonBar.vue'
 export default {
-    name: "StandardCondition",
-    components:{CommonBar},
+    name: "UseRate",
+    components: { CommonBar },
     data() {
         return {
-            chartData:[],
-            formVlaue: {
-                gradeId: 'all'
-            },
+            chartData: {},
         }
     },
     watch: {
@@ -38,12 +32,12 @@ export default {
     },
     methods: {
         async getCount() {
-            const data = await getStandardCondition({ id:this.formVlaue.gradeId })
+            const data = await getAttendschool()
             if (data) {
-                // this.chartData = {
-                //     x: data.map(item => item.gradeName),
-                //     y: data.map(item => item.studentNum)
-                // }
+                this.chartData = {
+                    x: data.map(item => item.gradeName),
+                    y: data.map(item => item.studentNum)
+                }
             }
         }
     }
@@ -54,8 +48,7 @@ export default {
 <style lang="less" scoped>
 .wrapper {
     .header {
-        display: flex;
-        justify-content: space-around;
+        width: 100%;
         font-size: 20px;
         color: #fff;
         margin-bottom: 16px;
@@ -76,7 +69,7 @@ export default {
 
     .content {
         width: 100%;
-        height: 200px;
+        height: 300px;
     }
 }
 </style>
