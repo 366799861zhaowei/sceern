@@ -47,6 +47,11 @@ export default {
             const data = await getNutrition({ ...this.formVlaue })
             if (data) {
                 console.log(data, 'data----------');
+                let arr = []
+                data.forEach(item=>{
+                    arr.push({...item,name:item.typeStr})
+                })
+                this.chartData = arr
             }
         }
     }
@@ -78,11 +83,8 @@ export default {
     }
 
     .content {
-        .content-table {
-            height: 180px;
-            overflow-y: auto;
-            font-size: 18px;
-        }
+        width: 100%;
+        height: 300px;
     }
 }
 </style>

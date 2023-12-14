@@ -26,7 +26,7 @@
 <script>
 import Standard from './components/Standard';
 import StandardCondition  from './components/StandardCondition ';
-import SightCondition from './components/Condition';
+import SightCondition from './components/SightCondition';
 import Weather from './components/Weather';
 export default {
     name: "Life",

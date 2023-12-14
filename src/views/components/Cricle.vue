@@ -1,16 +1,18 @@
 <template>
     <div class="polo-ball-box" ref="wrapper">
-        <div class="echart-item" :ref="id" :id="id"></div>
+        <div class="echart-item" ref="echart"></div>
     </div>
 </template>
   
 <script>
-import echarts from "echarts";
 export default {
     name: "Cricle-chart",
     props: {
-        data:{
-            type:Array,
+        data: {
+            type: Array,
+            default: () => {
+                return []
+            }
         }
     },
     data() {
@@ -18,11 +20,14 @@ export default {
             myChart: null,
         };
     },
+    computed: {
+    },
     watch: {
-        percentData: {
+        data: {
             handler() {
+                console.log('金娜娜娜娜',this.data);
                 this.$nextTick(async () => {
-                    await this.chartssize(this.$refs["wrapper"], this.$refs[this.id]); //必须等图表容器宽高获取后才能渲染
+                    await this.chartssize(this.$refs["wrapper"], this.$refs.echart); //必须等图表容器宽高获取后才能渲染
                     this.initChart(); //必须等dom元素挂载完后才能进行图表初始化
                 });
             },
@@ -54,25 +59,36 @@ export default {
         },
         initChart() {
             // 基于准备好的dom，初始化echarts实例
-            this.myChart = echarts.init(this.$refs[this.id]);
-            let option = option = {
+            console.log(this.data, '----------------------');
+            this.myChart = this.echarts.init(this.$refs.echart);
+            let option = {
                 tooltip: {
                     trigger: 'item'
                 },
                 legend: {
                     top: '5%',
-                    left: 'center'
+                    right: '25',
+                    top: 'center',
+                    orient: "vertical",
+                    textStyle: {
+                        color: "#fff",
+                        fontSize: 16
+                    }
                 },
+
                 series: [
                     {
                         name: 'Access From',
+                        width: '100%',
+                        height: '100%',
                         type: 'pie',
                         radius: ['40%', '70%'],
+                        center: ["30%", "50%"],
                         avoidLabelOverlap: false,
                         itemStyle: {
-                            borderRadius: 10,
+                            // borderRadius: 10,
                             borderColor: '#fff',
-                            borderWidth: 2
+                            // borderWidth: 2
                         },
                         label: {
                             show: false,
@@ -88,13 +104,7 @@ export default {
                         labelLine: {
                             show: false
                         },
-                        data: [
-                            { value: 1048, name: 'Search Engine' },
-                            { value: 735, name: 'Direct' },
-                            { value: 580, name: 'Email' },
-                            { value: 484, name: 'Union Ads' },
-                            { value: 300, name: 'Video Ads' }
-                        ]
+                        data: this.data,
                     }
                 ]
             };
@@ -102,7 +112,7 @@ export default {
         },
         async handleResizeCharts() {
             if (!this.myChart) return;
-            await this.chartssize(this.$refs["wrapper"], this.$refs[this.id]);
+            await this.chartssize(this.$refs["wrapper"], this.$refs.echart);
             this.myChart.resize();
         },
     },
@@ -111,25 +121,6 @@ export default {
   
 <style scoped lang="less">
 .polo-ball-box {
-    position: relative;
-    border: 1px solid #3686e1;
-    border-radius: 50%;
-    margin: auto;
-    margin-bottom: 16px;
-}
-
-.polo-ball-box::after {
-    position: absolute;
-    content: "";
-    right: 17px;
-    top: 10px;
-    width: 8px;
-    height: 8px;
-    background: #4aa0ff;
-    border-radius: 50%;
-}
-
-.echart-item {
     width: 100%;
     height: 100%;
 }
