@@ -9,7 +9,17 @@
                     <Panel title="每日膳食营养摄入量">
                         <Nutrition/>
                     </Panel>
-                    <Panel title="过敏源统计"></Panel>
+                    <Panel title="过敏源统计">
+                        <Allergy/>
+                    </Panel>
+                </div>
+            </template>
+            <template #mid>
+                <div>
+                    <Panel title="膳食营养分析">
+                        <Analys/>
+                    </Panel>
+
                 </div>
             </template>
         </Layout>
@@ -19,9 +29,11 @@
 <script>
 import PeopelNum from './components/PeopelNum';
 import Nutrition from './components/Nutrition';
+import Allergy from './components/Allergy';
+import Analys from './components/Analys';
 export default {
     name: "Food",
-    components: { PeopelNum,Nutrition },
+    components: { PeopelNum,Nutrition,Allergy ,Analys},
     data() {
         return {
         }

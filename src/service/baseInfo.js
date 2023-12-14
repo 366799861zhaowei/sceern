@@ -19,4 +19,7 @@ export function getNutrition (data) {
 export function getStandardBody (data) {
     return axios.post(api.getStandardBody,data,config)
 }
+export function getAllergen (data) {
+    return axios.post(api.getAllergen,data,config)
+}
 

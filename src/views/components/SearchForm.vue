@@ -94,6 +94,9 @@ export default {
             this.GET_GRADE()
         },
         handleGradeSelectChange() {
+            if(this.searchData.clazzGroupId){
+                this.searchData.clazzGroupId = ''
+            }
             this.GET_CLASS(this.searchData.gradeId)
         },
         handleTime() {
