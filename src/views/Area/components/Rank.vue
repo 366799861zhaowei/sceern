@@ -69,7 +69,7 @@ export default {
 .wrapper {
     .content{
         // max-height: 400px;
-        height: 200px;
+        height: 450px;
         overflow-y:auto
     }
 

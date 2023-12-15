@@ -99,7 +99,8 @@ export default {
 
     .content {
         width: 100%;
-        // height: 200px;
+        height: 350px;
+        overflow-y: auto;
         color: rgba(255, 255, 255, 0.8);
         font-size: 14px;
         text-align: left;

@@ -116,6 +116,7 @@ export default {
 
     .content {
         width: 100%;
+        height: 250px;
         .c-item{
             display: flex;
             align-items: center;
