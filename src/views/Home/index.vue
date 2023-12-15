@@ -5,7 +5,7 @@
         <div class="base-mind">
             <div class="base-mind-bg line"></div>
             <div class="base-mind-bg point"></div>
-            <div class="base-mind-bg item"></div>
+            <div class="base-mind-bg item"  :style="{ transform: `translate(-50%,-50%) rotate(${tabsIndex * 45}deg)` }"></div>
             <div class="base-item-wrapper">
                 <div class="base-item" v-for="(item, index) in mindOtpion" :key="index"
                     :style="{ transform: `translateX(-50%) rotate(${22 + (index * 45)}deg)` }" @click="handleChangeTab(item.value,index)">{{ item.label }}</div>
@@ -18,7 +18,7 @@
         <Food v-if="tabsValue ==='food'"/>
         <Clocking v-if="tabsValue ==='clocking'"/>
         <Life v-if="tabsValue ==='life'"/>
-        <Sport v-if="tabsValue ==='sport'"/>
+        <!-- <Sport v-if="tabsValue ==='sport'"/> -->
         <Area v-if="tabsValue ==='area'"/>
     </div>
 </template>
@@ -35,8 +35,8 @@ export default {
     components:{Food,Clocking,Life,Sport,Area},
     data() {
         return {
-            tabsValue:'area',
-            tabsIndex:0,
+            tabsValue:'food',
+            tabsIndex:-1,
         }
     },
     computed: {
@@ -47,8 +47,9 @@ export default {
     mounted() {
     },
     methods: {
-        handleChangeTab(val){
+        handleChangeTab(val,index){
             this.tabsValue = val
+            this.tabsIndex = index-1
         }
     }
 
@@ -134,6 +135,7 @@ export default {
             height: 466px;
             background-image: url(~@/assets/home__circle__item.png);
             transform-origin: 50% 50%;
+            
         }
 
         .base-item-wrapper {
