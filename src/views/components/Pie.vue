@@ -61,10 +61,10 @@ export default {
             let option = {
                 tooltip: {
                     trigger: 'item',
-                    textStyle: {
-                        color: "#fff",
-                        fontSize: 16
-                    }
+                    // textStyle: {
+                    //     color: "#fff",
+                    //     fontSize: 16
+                    // }
                 },
                 legend: {
                     orient: "vertical",

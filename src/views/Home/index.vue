@@ -12,7 +12,7 @@
             </div>
             <div class="base-mind-bg base-mind-center">
                 <div class="base-mind-center-num">1111</div>
-                <div class="base-mind-center-label">2222</div>
+                <div class="base-mind-center-label">全员人数</div>
             </div>
         </div>
         <Food v-if="tabsValue ==='food'"/>

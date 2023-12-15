@@ -4,16 +4,16 @@
             <SearchForm gradeSearch classSearch v-model="formVlaue" />
         </div>
         <div class="content">
-            <CommonBar  :data="chartData"></CommonBar>
+            <LineBar  :data="chartData"></LineBar>
         </div>
     </div>
 </template>
 <script>
 import { getAttendschoolCount } from "@/service/baseInfo.js";
-import CommonBar from '@/views/components/CommonBar.vue'
+import LineBar from '@/views/components/LineBar.vue'
 export default {
     name: "Rate",
-    components: { CommonBar },
+    components: { LineBar },
     data() {
         return {
             chartData: {},
@@ -41,8 +41,11 @@ export default {
             const data = await getAttendschoolCount({...this.formVlaue})
             if (data) {
                 this.chartData = {
-                    x: data.map(item => item.clazzName),
-                    y: data.map(item => item.cdNum)
+                    x: data.map(item => item.weekDay),
+                    y: [
+                        {name:'出勤人数',type:'bar',value:data.map(item => item.attendNum)},
+                        {name:'百分比',type:'line',value:data.map(item => item.percent)},
+                    ]
                 }
             }
         }
