@@ -74,7 +74,7 @@ export default {
 
                 series: [
                     {
-                        name: 'Access From',
+                        // name: 'Access From',
                         width: '100%',
                         height: '100%',
                         type: 'pie',

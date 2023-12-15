@@ -16,7 +16,7 @@ export default {
     components:{CommonBar},
     data() {
         return {
-            chartData:[],
+            chartData:{},
             formVlaue: {
                 gradeId: 'all'
             },
@@ -25,7 +25,7 @@ export default {
     watch: {
         formVlaue: {
             handler(value) {
-                this.getShit()
+                this.getCount()
             },
             immediate: true,
             deep: true
@@ -34,7 +34,6 @@ export default {
     computed: {
     },
     mounted() {
-        this.getCount()
     },
     methods: {
         async getCount() {
