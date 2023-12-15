@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="eat-list">
-                <EatItem v-for="(item, index) in eatLists" :key="index" :eatData="item" :index="index"></EatItem>
+                <EatItem v-for="(item, index) in eatList" :key="index" :eatData="item" :index="index"></EatItem>
             </div>
         </div>
     </div>
