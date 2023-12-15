@@ -6,7 +6,7 @@
                 <div class="item head-man-height">身高</div>
                 <div class="item head-man-width">体重</div>
             </div>  
-            <div class="table-content" v-for="(item,index) in childList.manList">
+            <div class="table-content" v-for="(item,index) in childList.manList" :key='index'>
                 <div class="item man-sex">{{ item.year }}</div>
                 <div class="item height">{{ item.height }}</div>
                 <div class="item width">{{ item.weight }}</div>

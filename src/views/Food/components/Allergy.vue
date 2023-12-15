@@ -41,7 +41,6 @@ export default {
         }
     },
     mounted() {
-        this.getCount()
     },
     methods: {
         async getCount() {

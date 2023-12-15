@@ -6,7 +6,6 @@
     </div>
 </template>
 <script>
-import { pelpleNumTableColumn } from '../config.js'
 import { getAllergen } from "@/service/baseInfo.js";
 import CommonBar from '@/views/components/CommonBar.vue'
 export default {
@@ -15,27 +14,12 @@ export default {
     data() {
         return {
             chartData: {},
-            formVlaue: {
-                gradeId: 'all',
-                clazzGroupId: ''
-            },
-            allNum: 0,
-            mealNum: 0,
         }
     },
     watch: {
-        "formVlaue.clazzGroupId": {
-            handler(value) {
-                this.getCount()
-            },
-            immediate: true,
-            deep: true
-        },
+
     },
     computed: {
-        column() {
-            return pelpleNumTableColumn.call(this)
-        }
     },
     mounted() {
         this.getCount()

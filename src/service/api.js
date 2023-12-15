@@ -9,7 +9,7 @@ const tempApis = {
         getEatUp:"/jeecg-boot/dp/dietary/nutrition/student/cd/count",//过敏原
         //------------------------------智慧生活
         getStandardBody:"/jeecg-boot/dp/common/intelligent/life/standard/height/and/weight",//智慧生活-标准身高体重
-        getStandardCondition:"/jeecg-boot/dp/common/intelligent/life/height/and/weight",//智慧生活-标准身高体重达标情况
+        getStandardCondition:"/jeecg-boot/dp/intelligent/life/height/and/weight",//智慧生活-标准身高体重达标情况
         getSleep:"/jeecg-boot/dp/intelligent/life/siesta/count",//午休
         getDrink:"/jeecg-boot/dp/intelligent/life/drink/count",//午休
         getShit:"/jeecg-boot/dp/intelligent/life/faeces/count",//午休

@@ -17,18 +17,12 @@ export default {
         }
     },
     watch: {
-        formVlaue: {
-            handler(value) {
-                this.getCount()
-            },
-            immediate: true,
-            deep: true
-        },
+
     },
     computed: {
     },
     mounted() {
-        this.getCount()
+        this.getCount()    
     },
     methods: {
         async getCount() {

@@ -49,7 +49,6 @@ export default {
     computed: {
     },
     mounted() {
-        this.getCount()
     },
     methods: {
         async getCount() {

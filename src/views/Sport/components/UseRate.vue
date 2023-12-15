@@ -17,13 +17,6 @@ export default {
         }
     },
     watch: {
-        formVlaue: {
-            handler(value) {
-                this.getCount()
-            },
-            immediate: true,
-            deep: true
-        },
     },
     computed: {
     },
