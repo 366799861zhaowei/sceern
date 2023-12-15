@@ -59,7 +59,7 @@ export function getShit (data) {
     return axios.post(api.getShit,data,config)
 }
 export function getWeather (data) {
-    return axios.post(api.getShit,data,config)
+    return axios.post(api.getWeather,data,config)
 }
 export function getVision (data) {
     return axios.post(api.getVision,data,config)

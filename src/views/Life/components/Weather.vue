@@ -3,21 +3,21 @@
         <div class="weather-item purple">
             <div class="icon-img"><i class="el-icon-sunny"></i></div>
             <div class="weather-item-right">
-                <div class="item-num">28</div>
+                <div class="item-num">{{ count.airTemperature || '0' }}</div>
                 <div class="item-name">日均气温</div>
             </div>
         </div>
         <div class="weather-item blue">
             <div class="icon-img"><i class="el-icon-link"></i></div>
             <div class="weather-item-right">
-                <div class="item-num">28</div>
+                <div class="item-num">{{ count.humidity || '0' }}</div>
                 <div class="item-name">相对湿度</div>
             </div>
         </div>
         <div class="weather-item green">
             <div class="icon-img"><i class="el-icon-partly-cloudy"></i></div>
             <div class="weather-item-right">
-                <div class="item-num">28</div>
+                <div class="item-num">{{ count.airQuality || '0' }}</div>
                 <div class="item-name">空气质量</div>
             </div>
         </div>
@@ -30,6 +30,7 @@ export default {
 
     data() {
         return {
+            count:{}
         }
     },
     watch: {
@@ -43,7 +44,7 @@ export default {
         async getCount() {
             const data = await getWeather()
             if (data) {
-                console.log(data,'getWeather');
+                this.count = data
             }
         }
     }

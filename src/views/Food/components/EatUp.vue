@@ -93,7 +93,7 @@ export default {
 
     .content {
         width: 100%;
-        height: 200px;
+        height: 500px;
         color: rgba(255, 255, 255, 1);
         font-size: 16px;
 
@@ -116,7 +116,7 @@ export default {
         }
 
         .eat-list {
-            height: 400px;
+            height: 480px;
             overflow-y: auto
         }
     }
