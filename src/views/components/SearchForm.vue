@@ -23,8 +23,17 @@
             <div class="form-item" v-if="time">
                 <div class="item-label">时间:</div>
                 <div class="item-input">
-                    <el-select v-model="searchData.timeLabel" placeholder="请选择" size="small" @change = 'handleTimeChange'>
+                    <el-select v-model="searchData.timeLabel" placeholder="请选择" size="small" @change='handleTimeChange'>
                         <el-option v-for="item in timeOption" :key="item.label" :label="item.label" :value="item.label">
+                        </el-option>
+                    </el-select>
+                </div>
+            </div>
+            <div class="form-item" v-if="area">
+                <div class="item-label">区域:</div>
+                <div class="item-input">
+                    <el-select v-model="searchData.areaType" placeholder="请选择" size="small">
+                        <el-option v-for="item in areaTypeOption" :key="item.label" :label="item.label" :value="item.label">
                         </el-option>
                     </el-select>
                 </div>
@@ -38,7 +47,7 @@ import { createNamespacedHelpers } from "vuex";
 const { mapState, mapActions } = createNamespacedHelpers('common');
 export default {
     name: "SearchForm",
-    props: { formVlaue: Object, classSearch: { type: Boolean, default: false }, gradeSearch: { type: Boolean, default: false }, time: { type: Boolean, default: false } },
+    props: { formVlaue: Object, classSearch: { type: Boolean, default: false }, gradeSearch: { type: Boolean, default: false }, time: { type: Boolean, default: false }, area: { type: Boolean, default: false } },
     model: {
         prop: 'formVlaue',
         event: 'change'
@@ -82,10 +91,19 @@ export default {
         },
         timeOption() {
             return this.handleTime()
+        },
+        areaTypeOption() {
+            return [
+                { label: '美工区' },
+                { label: '阅读区' },
+                { label: '构建区' },
+                { label: '科学区' },
+            ]
         }
     },
     mounted() {
         this.initDict()
+        this.GET_CLASS(this.searchData.gradeId || 'all')
     },
     methods: {
         ...mapActions(["GET_GRADE", "GET_CLASS"]),
@@ -93,7 +111,7 @@ export default {
             this.GET_GRADE()
         },
         handleGradeSelectChange() {
-            if(this.searchData.clazzGroupId){
+            if (this.searchData.clazzGroupId) {
                 this.searchData.clazzGroupId = ''
             }
             this.GET_CLASS(this.searchData.gradeId)
@@ -131,7 +149,7 @@ export default {
 
             return timeRanges;
         },
-        handleTimeChange(context){
+        handleTimeChange(context) {
             this.searchData.timeValue = this.handleTime().find(item => item.label === context).value
         }
     }

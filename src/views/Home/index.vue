@@ -19,6 +19,7 @@
         <Clocking v-if="tabsValue ==='clocking'"/>
         <Life v-if="tabsValue ==='life'"/>
         <Sport v-if="tabsValue ==='sport'"/>
+        <Area v-if="tabsValue ==='area'"/>
     </div>
 </template>
   
@@ -28,12 +29,13 @@ import Food from '@/views/Food/index.vue'
 import Clocking from '@/views/Clocking/index.vue'
 import Life from '@/views/Life/index.vue'
 import Sport from '@/views/Sport/index.vue'
+import Area from '@/views/Area/index.vue'
 export default {
     name: "index",
-    components:{Food,Clocking,Life,Sport},
+    components:{Food,Clocking,Life,Sport,Area},
     data() {
         return {
-            tabsValue:'life',
+            tabsValue:'area',
             tabsIndex:0,
         }
     },

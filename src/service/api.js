@@ -22,6 +22,11 @@ const tempApis = {
         getAttendschoolSex:"/jeecg-boot/dp/dietary/attendance/grade/sex/count",//出勤率统计
         getAttendschoolNumber:"/jeecg-boot/dp/dietary/attendance/grade/student/count",//出勤率统计
         getAttendschoolNumberCount:"/jeecg-boot/dp/dietary/attendance/student/attendschool/count",//出勤率统计
+        //==================================智慧区域
+        getAreaPeople:"/jeecg-boot/dp/activity/area/student/activityarea/count",//出勤率统计
+        getAreaAnylise:"/jeecg-boot/dp/activity/area/student/activityarea/analyze/count",//出勤率统计
+        getAreaRank:"/jeecg-boot/dp/activity/area/student/activityarea/top/count",//出勤率统计
+        getAreaFrequency:"/jeecg-boot/dp/activity/area/student/activityarea/frequency/count",//出勤率统计
     },
 };
 

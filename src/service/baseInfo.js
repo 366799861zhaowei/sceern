@@ -64,4 +64,16 @@ export function getWeather (data) {
 export function getVision (data) {
     return axios.post(api.getVision,data,config)
 }
+export function getAreaPeople (data) {
+    return axios.post(api.getAreaPeople,data,config)
+}
+export function getAreaAnylise (data) {
+    return axios.post(api.getAreaAnylise,data,config)
+}
+export function getAreaRank (data) {
+    return axios.post(api.getAreaRank,data,config)
+}
+export function getAreaFrequency (data) {
+    return axios.post(api.getAreaFrequency,data,config)
+}
 
