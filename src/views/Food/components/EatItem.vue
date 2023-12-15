@@ -1,7 +1,7 @@
 <template>
     <div class="eat-item-box">
         <div class="eat-index">{{ eatData.index }}</div>
-        <img src="" alt="">
+        <img :src="eatData.pictureUrl" alt="">
         <div class="e-t-content">
             <div class="c-top">
                 <div class="name">{{eatData.studentName}}</div>
@@ -68,6 +68,8 @@ export default {
     border-radius: 10px;
     padding: 0 20px;
     margin-bottom: 7px;
+    font-size: 16px;
+    color: #fff;
     .eat-index{
         width: 50px;
         font-size: 28px;

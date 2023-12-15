@@ -4,7 +4,10 @@
             <SearchForm gradeSearch classSearch area v-model="formVlaue" />
         </div>
         <div class="content">
-            <!-- -------内容 -->
+            <EatItem v-for="(item,index) in areaAllList" :key="index" :eatData="item"></EatItem>
+        </div>
+        
+        <!-- <div class="content">
             <div class="content-item">
                 <div class="item-img">图片</div>
                 <div class="item-label">
@@ -14,13 +17,15 @@
                 <div class="item-process"></div>
                 <div class="item-num">80</div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 <script>
 import { getAreaRank } from "@/service/baseInfo.js";
+import EatItem from "@/views/Food/components/EatItem.vue"
 export default {
     name: "Trainee",
+    components: { EatItem},
     data() {
         return {
             chartData: {},
@@ -29,6 +34,7 @@ export default {
                 gradeId:'all',
                 clazzGroupId:''
             },
+            areaAllList:{}
         }
     },
     watch: {
@@ -50,6 +56,7 @@ export default {
             const data = await getAreaRank({areaType:this.formVlaue.areaType,clazzGroupId:this.formVlaue.clazzGroupId})
             if (data) {
                 // 处理 数据
+                this.areaAllList = data;
                 console.log(data,'getAreaRank');
             }
         }
@@ -60,6 +67,12 @@ export default {
   
 <style lang="less" scoped>
 .wrapper {
+    .content{
+        // max-height: 400px;
+        height: 200px;
+        overflow-y:auto
+    }
+
     .header {
         width: 100%;
         font-size: 20px;
@@ -80,9 +93,6 @@ export default {
         }
     }
 
-    .content {
-        width: 100%;
-        height: 200px;
-    }
+    
 }
 </style>
