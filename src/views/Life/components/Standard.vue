@@ -18,7 +18,7 @@
                 <div class="item head-woman-height">身高</div>
                 <div class="item head-woman-width">体重</div>
             </div>  
-            <div class="table-content" v-for="(item,index) in childList.womanList">
+            <div class="table-content" v-for="(item,index) in childList.womanList" :key="index">
                 <div class="item woman-sex">{{ item.year }}</div>
                 <div class="item height">{{ item.height }}</div>
                 <div class="item width">{{ item.weight }}</div>
@@ -48,7 +48,6 @@ export default {
             const data = await getStandardBody()
             if (data) {
                 this.childList = data;
-                console.log(data, 'Standarddata-----222222222222222-----');
             }
         }
     }

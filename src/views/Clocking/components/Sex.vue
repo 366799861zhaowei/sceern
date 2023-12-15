@@ -1,33 +1,19 @@
 <template>
     <div class="wrapper">
-        <div class="header">
-            <SearchForm gradeSearch classSearch v-model="formVlaue" />
-        </div>
         <div class="content">
-            <!-- -------内容 -->
-            <div class="content-item">
-                <div class="item-header">
-                    <div class="item-header-left">正常出勤</div>
-                    <div class="item-header-left">29</div>
-                </div>
-                <div class="item-content">
-                    <!-- 进度条 -->
-                </div>
-            </div>
+            <Pie :data="chartData"></Pie>
         </div>
     </div>
 </template>
 <script>
-import { getAttendschoolCondition } from "@/service/baseInfo.js";
+import { getAttendschoolSex } from "@/service/baseInfo.js";
+import Pie from '@/views/components/Pie.vue'
 export default {
-    name: "Condition",
+    name: "Sex",
+    components: { Pie },
     data() {
         return {
-            chartData: {},
-            formVlaue: {
-                gradeId: 'all',
-                clazzGroupId: '',
-            },
+            chartData: [],
         }
     },
     watch: {
@@ -46,9 +32,13 @@ export default {
     },
     methods: {
         async getCount() {
-            const data = await getAttendschoolCondition({...this.formVlaue})
+            const data = await getAttendschoolSex()
             if (data) {
-                // 处理 数据
+                let arr = []
+                data.forEach(item => {
+                    arr.push({ ...item, name: item.type === 1? '男': '女' ,value:item.studentNum})
+                })
+                this.chartData = arr
             }
         }
     }

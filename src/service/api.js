@@ -10,9 +10,18 @@ const tempApis = {
         //------------------------------智慧生活
         getStandardBody:"/jeecg-boot/dp/common/intelligent/life/standard/height/and/weight",//智慧生活-标准身高体重
         getStandardCondition:"/jeecg-boot/dp/common/intelligent/life/height/and/weight",//智慧生活-标准身高体重达标情况
-        getSleep:"/jeecg-boot/yey/dpStudentSiesta/dp/count",//午休
+        getSleep:"/jeecg-boot/dp/intelligent/life/siesta/count",//午休
+        getDrink:"/jeecg-boot/dp/intelligent/life/drink/count",//午休
+        getShit:"/jeecg-boot/dp/intelligent/life/faeces/count",//午休
+        getWeather:"/jeecg-boot/dp/intelligent/life/title",//午休
+        getVision:"/jeecg-boot/dp/intelligent/life/vision",//午休
         //------------------------------智慧考勤
         getAttendschool:"/jeecg-boot/dp/dietary/attendance/grade/student/attendschool/count",//今日实到人数
+        getAttendschoolCount:"/jeecg-boot/dp/dietary/attendance/everyday/student/attendschool/count",//出勤率统计
+        getAttendschoolCondition:"/jeecg-boot/dp/dietary/attendance/clazzgroup/student/attendschool/count",//出勤率统计
+        getAttendschoolSex:"/jeecg-boot/dp/dietary/attendance/grade/sex/count",//出勤率统计
+        getAttendschoolNumber:"/jeecg-boot/dp/dietary/attendance/grade/student/count",//出勤率统计
+        getAttendschoolNumberCount:"/jeecg-boot/dp/dietary/attendance/student/attendschool/count",//出勤率统计
     },
 };
 

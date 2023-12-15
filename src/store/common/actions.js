@@ -1,6 +1,5 @@
 import TYPES from "./types";
 import { getGradeDict,getClassDict } from "@/service/baseInfo.js";
-console.log(TYPES,'--------------TYPES');
 export default {
   [TYPES.GET_GRADE]({ commit, state }) {
     if(state.grad && state.grad.length) return;

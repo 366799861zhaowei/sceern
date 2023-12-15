@@ -1,12 +1,12 @@
 <template>
-    <div class="polo-ball-box" ref="wrapper">
+    <div class="chart-wrapper" ref="wrapper">
         <div class="echart-item" ref="echart"></div>
     </div>
 </template>
   
 <script>
 export default {
-    name: "Cricle-chart",
+    name: "Pie",
     props: {
         data: {
             type: Array,
@@ -60,47 +60,34 @@ export default {
             this.myChart = this.echarts.init(this.$refs.echart);
             let option = {
                 tooltip: {
-                    trigger: 'item'
-                },
-                legend: {
-                    right: '25',
-                    top: 'center',
-                    orient: "vertical",
+                    trigger: 'item',
                     textStyle: {
                         color: "#fff",
                         fontSize: 16
                     }
                 },
-
+                legend: {
+                    orient: "vertical",
+                    top: 'top',
+                    right: '0',
+                    textStyle: {
+                        color: "#fff",
+                        fontSize: 16
+                    }
+                },
                 series: [
                     {
-                        name: 'Access From',
-                        width: '100%',
-                        height: '100%',
                         type: 'pie',
-                        radius: ['40%', '70%'],
-                        center: ["30%", "50%"],
-                        avoidLabelOverlap: false,
-                        itemStyle: {
-                            // borderRadius: 10,
-                            borderColor: '#fff',
-                            // borderWidth: 2
-                        },
-                        label: {
-                            show: false,
-                            position: 'center'
-                        },
-                        emphasis: {
-                            label: {
-                                show: true,
-                                fontSize: 40,
-                                fontWeight: 'bold'
-                            }
-                        },
-                        labelLine: {
-                            show: false
-                        },
+                        radius: '80%',
                         data: this.data,
+                        center: ['50%', '50%'],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
                     }
                 ]
             };
@@ -116,7 +103,7 @@ export default {
 </script>
   
 <style scoped lang="less">
-.polo-ball-box {
+.chart-wrapper {
     width: 100%;
     height: 100%;
 }

@@ -16,7 +16,7 @@ export default {
     components:{CommonBar},
     data() {
         return {
-            chartData:[],
+            chartData:{},
             formVlaue: {
                 gradeId: 'all'
             },
@@ -40,6 +40,7 @@ export default {
         async getCount() {
             const data = await getStandardCondition({ id:this.formVlaue.gradeId })
             if (data) {
+                console.log(data,'StandardCondition');
                 // this.chartData = {
                 //     x: data.map(item => item.gradeName),
                 //     y: data.map(item => item.studentNum)

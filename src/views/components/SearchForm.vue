@@ -60,7 +60,6 @@ export default {
             handler(newValue) {
                 if (newValue) {
                     for (const key in newValue) {
-                        console.log(newValue[key],'newValue[key]newValue[key]');
                         this.$set(
                             this.searchData,
                             key,
@@ -91,7 +90,6 @@ export default {
     methods: {
         ...mapActions(["GET_GRADE", "GET_CLASS"]),
         initDict() {
-            console.log(this.mapActions);
             this.GET_GRADE()
         },
         handleGradeSelectChange() {
@@ -134,7 +132,6 @@ export default {
             return timeRanges;
         },
         handleTimeChange(context){
-            console.log(context,'context');
             this.searchData.timeValue = this.handleTime().find(item => item.label === context).value
         }
     }

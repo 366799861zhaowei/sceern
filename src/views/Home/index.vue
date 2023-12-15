@@ -8,7 +8,7 @@
             <div class="base-mind-bg item"></div>
             <div class="base-item-wrapper">
                 <div class="base-item" v-for="(item, index) in mindOtpion" :key="index"
-                    :style="{ transform: `translateX(-50%) rotate(${22 + (index * 45)}deg)` }" @click="handleChangeTab(item.value)">{{ item.label }}</div>
+                    :style="{ transform: `translateX(-50%) rotate(${22 + (index * 45)}deg)` }" @click="handleChangeTab(item.value,index)">{{ item.label }}</div>
             </div>
             <div class="base-mind-bg base-mind-center">
                 <div class="base-mind-center-num">1111</div>
@@ -33,7 +33,8 @@ export default {
     components:{Food,Clocking,Life,Sport},
     data() {
         return {
-            tabsValue:'food'
+            tabsValue:'life',
+            tabsIndex:0,
         }
     },
     computed: {
@@ -130,6 +131,7 @@ export default {
             width: 466px;
             height: 466px;
             background-image: url(~@/assets/home__circle__item.png);
+            transform-origin: 50% 50%;
         }
 
         .base-item-wrapper {

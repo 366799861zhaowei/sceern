@@ -37,4 +37,31 @@ export function getStandardCondition (data) {
 export function getSleep (data) {
     return axios.post(api.getSleep,data,config)
 }
+export function getAttendschoolCount (data) {
+    return axios.post(api.getAttendschoolCount,data,config)
+}
+export function getAttendschoolCondition (data) {
+    return axios.post(api.getAttendschoolCondition,data,config)
+}
+export function getAttendschoolSex (data) {
+    return axios.post(api.getAttendschoolSex,data,config)
+}
+export function getAttendschoolNumber (data) {
+    return axios.post(api.getAttendschoolNumber,data,config)
+}
+export function getAttendschoolNumberCount (data) {
+    return axios.post(api.getAttendschoolNumberCount,data,config)
+}
+export function getDrink (data) {
+    return axios.post(api.getDrink,data,config)
+}
+export function getShit (data) {
+    return axios.post(api.getShit,data,config)
+}
+export function getWeather (data) {
+    return axios.post(api.getShit,data,config)
+}
+export function getVision (data) {
+    return axios.post(api.getVision,data,config)
+}
 

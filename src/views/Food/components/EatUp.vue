@@ -114,7 +114,6 @@ export default {
                 //     y: data.map(item => item.cdNum)
                 // }
                 this.eatList = data
-                console.log(data,'this.chartDatathis.chartData')
             }
         }
     }

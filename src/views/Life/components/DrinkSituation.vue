@@ -5,46 +5,26 @@
             <div class="title-right">达标情况</div>
         </div>
         <div class="drink-content" v-for="(item,indexx) in testList" :key="indexx">
-                <div class="class-name">{{item.name}}</div>
+                <div class="class-name">{{item.gradeName}}</div>
                 <div class="progress">
-                    <el-progress  :stroke-width="number" :show-text="false" :percentage="item.rade" color="rgba(136, 250, 200, 1)"
+                    <el-progress  :stroke-width="number" :show-text="false" :percentage="100" color="rgba(136, 250, 200, 1)"
                     >
                     </el-progress>
                 </div>
                 
-                <div class="drink-num">{{ item.num }}</div>
+                <div class="drink-num">{{ item.number }}</div>
         </div>
     </div>
 </template>
 <script>
-
+import { getDrink } from "@/service/baseInfo.js";
 export default {
     name: "DrinkSituation",
-
     data() {
         return {
             number:10,
             testList:[
-                {
-                    name:'托班段',
-                    num:'18人',
-                    rade:18,
-                },
-                {
-                    name:'小班段',
-                    num:'91人',
-                    rade:91,
-                },
-                {
-                    name:'中班段',
-                    num:'80人',
-                    rade:80,
-                },
-                {
-                    name:'大班段',
-                    num:'84人',
-                    rade:84,
-                },
+                
             ]
         }
     },
@@ -53,10 +33,15 @@ export default {
     computed: {
     },
     mounted() {
-
+        this.getCount()
     },
     methods: {
-
+        async getCount() {
+            const data = await getDrink()
+            if (data) {
+                this.testList = data
+            }
+        }
     }
 
 }

@@ -4,7 +4,7 @@
             <div class="header-left">标准饮水 2 小时</div>
         </div>
         <div class="content">
-            <CommonBar cross :data="chartData"></CommonBar>
+            <CommonBar  :data="chartData"></CommonBar>
         </div>
     </div>
 </template>
@@ -16,6 +16,7 @@ export default {
     components:{CommonBar},
     data() {
         return {
+            chartData:{}
         }
     },
     watch: {
@@ -29,10 +30,11 @@ export default {
         async getCount() {
             const data = await getSleep()
             if (data) {
-                // this.chartData = {
-                //     x: data.map(item => item.gradeName),
-                //     y: data.map(item => item.studentNum)
-                // }
+                console.log(data,'getSleep');
+                this.chartData = {
+                    x: data.map(item => item.clazzName),
+                    y: data.map(item => item.number)
+                }
             }
         }
     }
@@ -57,6 +59,10 @@ export default {
             bottom: 0px;
             font-size: 28px;
         }
+    }
+    .content{
+        height: 200px;
+        width: 100%;
     }
 
 }

@@ -24,7 +24,7 @@
     </div>
 </template>
 <script>
-import { getStandardBody } from "@/service/baseInfo.js";
+import { getWeather } from "@/service/baseInfo.js";
 export default {
     name: "Weather",
 
@@ -41,9 +41,9 @@ export default {
     },
     methods: {
         async getCount() {
-            const data = await getStandardBody()
+            const data = await getWeather()
             if (data) {
-                console.log(data, 'Standarddata----------');
+                console.log(data,'getWeather');
             }
         }
     }
@@ -67,23 +67,27 @@ export default {
         width: 210px;
         height: 96px;
         border-radius: 3px;
+
         // background-color: red;
-        &.purple{
+        &.purple {
             background-color: rgba(149, 142, 255, 1);
         }
-        &.blue{
+
+        &.blue {
             background-color: rgba(134, 187, 255, 1);
         }
-        &.green{
+
+        &.green {
             background-color: rgba(102, 255, 255, 1);
         }
-        .icon-img{
+
+        .icon-img {
             font-size: 60px;
         }
-        .item-name{
+
+        .item-name {
             font-size: 22px;
             // margin-right: 20px;
         }
     }
-}
-</style>
+}</style>

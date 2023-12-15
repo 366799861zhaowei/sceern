@@ -21,7 +21,7 @@
                             应出勤人数 (人)
                         </div>
                         <div class="item-num-box">
-                            <div class="string-item" v-for="(item,index) in test" :key="index">
+                            <div class="string-item" v-for="(item,index) in count.studentNum ?? '000'" :key="index">
                                 {{ item }}
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                             实际勤人数 (人)
                         </div>
                         <div class="item-num-box">
-                            <div class="string-item color" v-for="(item,index) in test" :key="index">
+                            <div class="string-item color" v-for="(item,index) in count.attendNum ?? '000'" :key="index">
                                 {{ item }}
                             </div>
                         </div>
@@ -43,11 +43,11 @@
                     <Panel title="今日实到人数列表">
                         <List />
                     </Panel>
-                    <Panel title="出勤率统计">
-                        <Rate />
+                    <Panel title="校园性别比例">
+                        <Sex />
                     </Panel>
-                    <Panel title="出勤情况统计">
-                        <Condition />
+                    <Panel title="各年级人数比例">
+                        <Number />
                     </Panel>
                 </div>
             </template>
@@ -60,21 +60,30 @@ import Time from './components/Time';
 import Rate from './components/Rate';
 import Condition from './components/Condition';
 import List from './components/List';
+import Sex from './components/Sex';
+import Number from './components/Number';
+import { getAttendschoolNumberCount } from "@/service/baseInfo.js";
 export default {
     name: "Food",
-    components: { Time, Rate, Condition,List },
+    components: { Time, Rate, Condition,List,Sex,Number },
     data() {
         return {
-            test:'280'
+            count:{}
         }
     },
     computed: {
 
     },
     mounted() {
+        this.getCount()
     },
     methods: {
-
+        async getCount() {
+            const data = await getAttendschoolNumberCount({gradeId:'all'})
+            if (data) {
+                this.count = data
+            }
+        }
     }
 
 }

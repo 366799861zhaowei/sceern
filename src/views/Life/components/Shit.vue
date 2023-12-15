@@ -9,7 +9,7 @@
     </div>
 </template>
 <script>
-import { getStandardCondition } from "@/service/baseInfo.js";
+import { getShit } from "@/service/baseInfo.js";
 import CommonBar from '@/views/components/CommonBar.vue'
 export default {
     name: "Shit",
@@ -25,7 +25,7 @@ export default {
     watch: {
         formVlaue: {
             handler(value) {
-                this.getCount()
+                this.getShit()
             },
             immediate: true,
             deep: true
@@ -38,8 +38,9 @@ export default {
     },
     methods: {
         async getCount() {
-            const data = await getStandardCondition({ id:this.formVlaue.gradeId })
+            const data = await getShit({clazzGroupId:'all'})
             if (data) {
+                console.log(data,'getShit');
                 // this.chartData = {
                 //     x: data.map(item => item.gradeName),
                 //     y: data.map(item => item.studentNum)

@@ -116,16 +116,13 @@ export default {
                 }
                 var wi = getStyle(container, "width").width;
                 var hi = getStyle(container, "height").height;
-                // console.log("宽：", wi, "高：", hi);
                 charts.style.width = wi;
                 charts.style.height = hi;
-                console.log(wi, hi);
                 resolve();
             });
         },
         initChart() {
             // 基于准备好的dom，初始化echarts实例
-            console.log(this.data, '----------------------');
             this.myChart = this.echarts.init(this.$refs.echart);
             let option = {
                 grid: {
