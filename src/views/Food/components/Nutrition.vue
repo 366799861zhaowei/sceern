@@ -9,7 +9,6 @@
     </div>
 </template>
 <script>
-import { pelpleNumTableColumn } from '../config.js'
 import { getNutrition } from "@/service/baseInfo.js";
 import Cricle from '@/views/components/Cricle.vue'
 export default {
@@ -36,11 +35,9 @@ export default {
     },
     computed: {
         column() {
-            return pelpleNumTableColumn.call(this)
         }
     },
     mounted() {
-        this.getCount()
     },
     methods: {
         async getCount() {
