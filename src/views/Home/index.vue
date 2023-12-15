@@ -135,7 +135,7 @@ export default {
             height: 466px;
             background-image: url(~@/assets/home__circle__item.png);
             transform-origin: 50% 50%;
-            
+            transition: transform 0.3s;
         }
 
         .base-item-wrapper {
