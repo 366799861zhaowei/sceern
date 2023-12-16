@@ -21,7 +21,7 @@
                             应出勤人数 (人)
                         </div>
                         <div class="item-num-box">
-                            <div class="string-item" v-for="(item,index) in count.studentNum ?? '000'" :key="index">
+                            <div class="string-item" v-for="(item,index) in count.studentNum.toString() ?? '000'" :key="index">
                                 {{ item }}
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                             实际勤人数 (人)
                         </div>
                         <div class="item-num-box">
-                            <div class="string-item color" v-for="(item,index) in count.attendNum ?? '000'" :key="index">
+                            <div class="string-item color" v-for="(item,index) in count.attendNum.toString() ?? '000'" :key="index">
                                 {{ item }}
                             </div>
                         </div>
@@ -81,6 +81,7 @@ export default {
         async getCount() {
             const data = await getAttendschoolNumberCount({gradeId:'all'})
             if (data) {
+                console.log(data,'------------------data');
                 this.count = data
             }
         }

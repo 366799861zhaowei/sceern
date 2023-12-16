@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="content" v-if="visible">
-                <Liquid v-for="(item, index) in chartData" :key="item.foodTypeId" :id="item.foodTypeId" :percentData="item.value/100" :nameData="item.foodTypeCn"></Liquid>
+                <Liquid v-for="(item, index) in chartData" :key="item.foodTypeId" :id="item.foodTypeId" :percentData="item.value/total" :nameData="item.foodTypeCn"></Liquid>
             </div>
         </Panel>
 
@@ -29,13 +29,20 @@ export default {
                 {label:"脂肪来源分布",value:'fat'},
             ],
             value:'energy',
-            visible:true
+            visible:true,
         }
     },
     watch: {
 
     },
     computed: {
+        total(){
+            let num = 0 
+            this.chartData.forEach(item=>{
+                num += item.value
+            })
+            return num
+        }
     },
     mounted() {
         this.getCount()

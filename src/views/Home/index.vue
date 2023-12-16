@@ -11,7 +11,7 @@
                     :style="{ transform: `translateX(-50%) rotate(${22 + (index * 45)}deg)` }" @click="handleChangeTab(item.value,index)">{{ item.label }}</div>
             </div>
             <div class="base-mind-bg base-mind-center">
-                <div class="base-mind-center-num">1111</div>
+                <div class="base-mind-center-num">{{ total.total }}</div>
                 <div class="base-mind-center-label">全员人数</div>
             </div>
         </div>
@@ -24,14 +24,13 @@
 </template>
   
 <script>
-import { mindCircleLabel } from "./config";
+import { mindCircleLabel } from "./config.js";
 import Food from '@/views/Food/index.vue'
 import Clocking from '@/views/Clocking/index.vue'
 import Life from '@/views/Life/index.vue'
 import Sport from '@/views/Sport/index.vue'
 import Area from '@/views/Area/index.vue'
-import { createNamespacedHelpers } from "vuex";
-const { mapState, mapActions } = createNamespacedHelpers('common');
+import { getTotal } from "@/service/baseInfo.js";
 export default {
     name: "index",
     components:{Food,Clocking,Life,Area},
@@ -39,6 +38,7 @@ export default {
         return {
             tabsValue:'food',
             tabsIndex:-1,
+            total:0
         }
     },
     computed: {
@@ -50,19 +50,20 @@ export default {
         this.GET_CLASS('all')
     },
     mounted() {
+        this.initCount()
     },
     methods: {
-        ...mapActions(["GET_GRADE", "GET_CLASS"]),
         handleChangeTab(val,index){
             this.tabsValue = val
             this.tabsIndex = index-1
+        },
+        async initCount(){
+            const data = await getTotal()
+            if(data){
+                this.total = data
+            }
         }
     },
-    beforeRouteEnter(to,from,next){
-        // this.GET_GRADE()
-
-        next()
-    }
 
 }
 </script>

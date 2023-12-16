@@ -79,4 +79,7 @@ export function getAreaFrequency (data) {
 export function getFoodAnylise (data) {
     return axios.post(api.getFoodAnylise,data,config)
 }
+export function getTotal (data) {
+    return axios.post(api.getTotal,data,config)
+}
 
