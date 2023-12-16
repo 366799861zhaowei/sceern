@@ -15,9 +15,9 @@
                 </div>
             </template>
             <template #mid>
-                <Panel title="膳食营养分析">
+                <!-- <Panel title="膳食营养分析"> -->
                     <Analys />
-                </Panel>
+                <!-- </Panel> -->
             </template>
             <template #right>
                 <div>

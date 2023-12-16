@@ -7,10 +7,10 @@
             <div class="content-top">
                 <div class="name">光盘人次</div>
                 <div class="num">222</div>
-                <div class="name">光盘率</div>
+                <div class="name"></div>
                 <div class="redo">
-                    <el-progress type="circle" color="rgba(255, 138, 72, 1)" :width="90" :stroke-width="8"
-                        :percentage="100"></el-progress>
+                    <!-- <el-progress type="circle" color="rgba(255, 138, 72, 1)" :width="90" :stroke-width="8"
+                        :percentage="100"></el-progress> -->
                 </div>
             </div>
             <div class="eat-list">
@@ -34,6 +34,7 @@ export default {
             formVlaue: {
                 gradeId: 'all',
                 timeLabel: '本日',
+                clazzGroupId:'',
                 timeValue: [new Date(new Date().setHours(0, 0, 0, 0)).getTime(), new Date(new Date().setHours(23, 59, 59, 999)).getTime()],
             },
             allNum: 0,
@@ -116,7 +117,7 @@ export default {
         }
 
         .eat-list {
-            height: 480px;
+            height: 360px;
             overflow-y: auto
         }
     }

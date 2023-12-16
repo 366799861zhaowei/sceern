@@ -17,7 +17,11 @@ export default {
         cross: {
             type: Boolean,
             default: false
-        }
+        },
+        more: {
+            type: Boolean,
+            default: false
+        },
     },
     data() {
         return {
@@ -49,7 +53,7 @@ export default {
             }
         },
         series() {
-            if (Array.isArray(this.data.y)) {
+            if (!this.more) {
                 return [{
                     data: this.data.y,
                     type: 'bar',
@@ -73,7 +77,7 @@ export default {
             }
         },
         legend() {
-            if (Array.isArray(this.data.y)) {
+            if (!this.more) {
                 return {}
             } else {
                 let arr = []
@@ -129,10 +133,17 @@ export default {
                     left: '5',
                     right: '15',
                     bottom: '5',
-                    top: '15',
+                    top: '25',
                     containLabel: true // 这个属性确保标签不会溢出容器
                 },
-                legend: this.legend,
+                legend: {
+                    ...this.legend,
+                    top: '0',
+                    right: '0',
+                    textStyle: {
+                        color: "#fff"
+                    }
+                },
                 ...this.barShaft,
                 series: this.series
             };

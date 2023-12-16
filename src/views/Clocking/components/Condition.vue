@@ -12,7 +12,7 @@
                     <div class="item-header-left">{{ item.studentNum }}</div>
                 </div>
                 <div class="item-content">
-                    <el-progress  :stroke-width="10" :show-text="false" :percentage="((item.studentNum/allNum)*100).toFixed(0)" 
+                    <el-progress  :stroke-width="10" :show-text="false" :percentage="((item.studentNum/allNum ?? 0)*100).toFixed(0)" 
                     :color="index==0?'rgba(35, 145, 255, 1)':(index==1?'rgba(90, 216, 166, 1)':(index==2?'rgba(255, 195, 40, 1)':'rgba(255, 116, 90, 1)'))"
                         >
                         </el-progress>

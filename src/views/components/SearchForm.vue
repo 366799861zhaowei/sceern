@@ -44,6 +44,7 @@
   
 <script>
 import { createNamespacedHelpers } from "vuex";
+import { getClassDict } from "@/service/baseInfo.js";
 const { mapState, mapActions } = createNamespacedHelpers('common');
 export default {
     name: "SearchForm",
@@ -69,11 +70,19 @@ export default {
             handler(newValue) {
                 if (newValue) {
                     for (const key in newValue) {
-                        this.$set(
+                        if(key ==='clazzGroupId' && !newValue[key]){
+                            this.$set(
                             this.searchData,
                             key,
-                            newValue[key]
+                            this.defaultClass
                         )
+                        }else{
+                            this.$set(
+                                this.searchData,
+                                key,
+                                newValue[key]
+                            )
+                        }
                     }
                 }
             },
@@ -87,7 +96,7 @@ export default {
             grade: (state) => state.grade,
         }),
         classOption() {
-            return this.class[this.searchData.gradeId]
+            return this.class[this.searchData.gradeId || 'all']
         },
         timeOption() {
             return this.handleTime()
@@ -99,11 +108,16 @@ export default {
                 { label: '构建区' },
                 { label: '科学区' },
             ]
+        },
+        defaultClass(){
+            return this.class['all'][0].value
         }
     },
-    mounted() {
+    created(){
         this.initDict()
         this.GET_CLASS(this.searchData.gradeId || 'all')
+    },
+    mounted() {
     },
     methods: {
         ...mapActions(["GET_GRADE", "GET_CLASS"]),
@@ -151,6 +165,14 @@ export default {
         },
         handleTimeChange(context) {
             this.searchData.timeValue = this.handleTime().find(item => item.label === context).value
+        },
+        async handleReturnCalss(){
+            const data = await getClassDict({gradeId:'all'})
+            if(data){
+                return data[0]?.value
+            }else{
+                return ''
+            }
         }
     }
 

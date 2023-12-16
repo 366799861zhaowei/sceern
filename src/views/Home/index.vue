@@ -30,9 +30,11 @@ import Clocking from '@/views/Clocking/index.vue'
 import Life from '@/views/Life/index.vue'
 import Sport from '@/views/Sport/index.vue'
 import Area from '@/views/Area/index.vue'
+import { createNamespacedHelpers } from "vuex";
+const { mapState, mapActions } = createNamespacedHelpers('common');
 export default {
     name: "index",
-    components:{Food,Clocking,Life,Sport,Area},
+    components:{Food,Clocking,Life,Area},
     data() {
         return {
             tabsValue:'food',
@@ -44,13 +46,22 @@ export default {
             return mindCircleLabel.call(this)
         }
     },
+    created(){
+        this.GET_CLASS('all')
+    },
     mounted() {
     },
     methods: {
+        ...mapActions(["GET_GRADE", "GET_CLASS"]),
         handleChangeTab(val,index){
             this.tabsValue = val
             this.tabsIndex = index-1
         }
+    },
+    beforeRouteEnter(to,from,next){
+        // this.GET_GRADE()
+
+        next()
     }
 
 }

@@ -4,7 +4,7 @@
             <SearchForm gradeSearch v-model="formVlaue" />
         </div>
         <div class="content">
-            <CommonBar :data="chartData"></CommonBar>
+            <CommonBar :data="chartData" more></CommonBar>
         </div>
     </div>
 </template>
@@ -40,10 +40,14 @@ export default {
             const data = await getShit({clazzGroupId:'all'})
             if (data) {
                 console.log(data,'getShit');
-                // this.chartData = {
-                //     x: data.map(item => item.gradeName),
-                //     y: data.map(item => item.studentNum)
-                // }
+                this.chartData = {
+                    x: data.map(item => item.clazzName),
+                    y: [
+                        {name:'正常',value:data.map(item => item.number)},
+                        {name:'较稀',value:data.map(item => item.dilutedNumber)},
+                        {name:'较硬',value:data.map(item => item.hardNumber)},
+                    ]
+                }
             }
         }
     }

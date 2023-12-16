@@ -76,4 +76,7 @@ export function getAreaRank (data) {
 export function getAreaFrequency (data) {
     return axios.post(api.getAreaFrequency,data,config)
 }
+export function getFoodAnylise (data) {
+    return axios.post(api.getFoodAnylise,data,config)
+}
 

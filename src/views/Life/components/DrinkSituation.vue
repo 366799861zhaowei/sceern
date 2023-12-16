@@ -66,7 +66,7 @@ export default {
         }
     }
     .drink-content{
-        margin: 35px 0;
+        margin: 25px 0 0;
         display: flex;
         justify-content: space-between;
         align-items: center;

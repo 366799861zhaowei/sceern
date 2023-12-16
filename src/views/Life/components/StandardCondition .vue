@@ -13,10 +13,10 @@ import { getStandardCondition } from "@/service/baseInfo.js";
 import CommonBar from '@/views/components/CommonBar.vue'
 export default {
     name: "StandardCondition",
-    components:{CommonBar},
+    components: { CommonBar },
     data() {
         return {
-            chartData:{},
+            chartData: {},
             formVlaue: {
                 gradeId: 'all'
             },
@@ -37,13 +37,15 @@ export default {
     },
     methods: {
         async getCount() {
-            const data = await getStandardCondition({ id:this.formVlaue.gradeId })
-            if (data) {
-                console.log(data,'StandardCondition');
-                // this.chartData = {
-                //     x: data.map(item => item.gradeName),
-                //     y: data.map(item => item.studentNum)
-                // }
+            const res = await getStandardCondition({ id: this.formVlaue.gradeId })
+            if (res) {
+                const {detailsList:data} = res
+                console.log(data, 'StandardCondition');
+                this.chartData = {
+                    x: data.map(item => item.name),
+                    y: [{ name: '身高', value: data.map(item => item.heightNumber) },
+                    { name: '体重', value: data.map(item => item.weightNumber) },]
+                }
             }
         }
     }

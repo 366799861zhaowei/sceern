@@ -1,16 +1,21 @@
 <template>
   <div class="wrapper" ref="wrapper">
     <div class="echart-item" :ref="id" :id="id"></div>
+    <div class="item">{{ nameData }}</div>
   </div>
 </template>
 
 <script>
 import "echarts-liquidfill";
-import echarts from "echarts";
+// import echarts from "echarts";
 export default {
   name: "Liquid",
   props: {
     id: {
+      type: String,
+      default: "",
+    },
+    nameData: {
       type: String,
       default: "",
     },
@@ -49,6 +54,17 @@ export default {
       deep: true,
       immediate: true,
     },
+    nameData: {
+      handler() {
+        console.log('----------------');
+        this.$nextTick(async () => {
+          await this.chartssize(this.$refs["wrapper"], this.$refs[this.id]); //必须等图表容器宽高获取后才能渲染
+          this.initChart(); //必须等dom元素挂载完后才能进行图表初始化
+        });
+      },
+      deep: true,
+      immediate: true,
+    },
   },
   destroyed() {
     window.removeEventListener("resize", this.handleResizeCharts);
@@ -73,11 +89,12 @@ export default {
     },
     initChart() {
       // 基于准备好的dom，初始化echarts实例
-      this.myChart = echarts.init(this.$refs[this.id]);
+      this.myChart = this.echarts.init(this.$refs[this.id]);
       let option = {
         series: [
           {
             type: "liquidFill",
+            name:'11111111',
             radius: "90%",
             center: ["50%", "50%"],
             data: [
@@ -96,9 +113,11 @@ export default {
                   fontSize: 20,
                   color: "#fff",
                 },
-                formatter: (val) => {
-                  return `${(val.value * 100).toFixed(2)}%`;
-                },
+                // formatter: (val) => {
+                //   return `${(val.value * 100).toFixed(2)}%
+                //   ${this.nameData}
+                //   `;
+                // },
               },
             },
             color: [
@@ -137,23 +156,29 @@ export default {
 <style scoped lang="less">
 .wrapper {
   position: relative;
-  border: 1px solid #3686e1;
-  border-radius: 50%;
-  margin: auto;
-  margin-bottom: 16px;
+  // border: 1px solid #3686e1;
+  // border-radius: 50%;
+  // margin: auto;
+  // margin-bottom: 16px;
 }
-.wrapper::after {
-  position: absolute;
-  content: "";
-  right: 17px;
-  top: 10px;
-  width: 8px;
-  height: 8px;
-  background: #4aa0ff;
-  border-radius: 50%;
-}
+// .wrapper::after {
+//   position: absolute;
+//   content: "";
+//   right: 17px;
+//   top: 10px;
+//   width: 8px;
+//   height: 8px;
+//   background: #4aa0ff;
+//   border-radius: 50%;
+// }
 .echart-item {
   width: 100%;
   height: 100%;
+}
+.item{
+  font-size: 16px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
 }
 </style>

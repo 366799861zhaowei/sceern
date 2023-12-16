@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="header">
             <SearchForm gradeSearch v-model="formVlaue" />
-            <div class="cla-all-num">班段总人数：30人</div>
+            <div class="cla-all-num">班段总人数：{{total}}人</div>
         </div>
         <div class="content">
             <div class="item">
@@ -12,23 +12,19 @@
                 <div class="t-num">视力达标数</div>
                 <div class="t-rank">达标率</div>
             </div>
-            <div class="item-box" v-for="(item,index) in test" :key="index">
+            <div class="item-box" v-for="(item,index) in chartData" :key="index">
                 <div class="item">
-                    <div class="t-index bor">{{ item.index }}</div>
-                    <div class="t-class">{{ item.class }}</div>
-                    <div class="t-all-num">{{ item.allNum }}</div>
-                    <div class="t-num">{{ item.num }}</div>
-                    <div class="t-rank">{{ item.rank + '%'}}</div>
+                    <div class="t-index bor">{{index }}</div>
+                    <div class="t-class">{{ item.name }}</div>
+                    <div class="t-all-num">{{ item.total }}</div> 
+                    <div class="t-num">{{ item.visionNumber }}</div>
+                    <div class="t-rank">{{item.percentage/100 + '%'}}</div>
                     
                 </div>
-                <el-progress style="margin-left: 35px;" :stroke-width="8" :show-text="false" :percentage="item.rank"
+                <el-progress style="margin-left: 35px;" :stroke-width="8" :show-text="false" :percentage="item.percentage/100"
                         color="rgba(2, 136, 219, 1)">
                 </el-progress>
             </div>
-
-
-
-
         </div>
     </div>
 </template>
@@ -39,7 +35,8 @@ export default {
     components: {},
     data() {
         return {
-            chartData: {},
+            chartData: [],
+            total:0,
             formVlaue: {
                 gradeId: 'all',
             },
@@ -94,6 +91,8 @@ export default {
             const data = await getVision({ id: this.formVlaue.gradeId })
             if (data) {
                 console.log(data, 'getVision');
+                this.chartData = data.detailsList,
+                this.total = data.totalNumber
             }
         }
     }

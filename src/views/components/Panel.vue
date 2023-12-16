@@ -2,7 +2,9 @@
     <div class="panel-wrapper">
         <div class="panel-title">
             <div class="title-context">{{ title }}</div>
-            <div class="title-right">{{ titleRight }}</div>
+            <div class="title-right">
+                <slot name="right"></slot>
+            </div>
             </div>
         <div class="panel-mind">
             <slot></slot>
@@ -57,6 +59,7 @@ export default {
         }
     }
     .panel-mind{
+        width: 100%;
         padding: 24px;
         box-sizing: border-box;
     }
