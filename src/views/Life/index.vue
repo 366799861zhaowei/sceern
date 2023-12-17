@@ -9,7 +9,7 @@
                     <Panel title="身高体重达标情况">
                         <StandardCondition  />
                     </Panel>
-                    <Panel title="视力达标请款">
+                    <Panel title="视力达标情况">
                         <SightCondition />
                     </Panel>
                 </div>
