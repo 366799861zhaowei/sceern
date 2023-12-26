@@ -5,7 +5,8 @@
         <div class="e-t-content">
             <div class="c-top">
                 <div class="name">{{eatData.studentName}}</div>
-                <div class="num">{{ eatData.cdNum }}次</div>
+                <div class="num" v-if="sport">运动时长：{{ eatData.cdNum }} 小时</div>
+                <div class="num" v-else>{{ eatData.cdNum }}次</div>
             </div>
             <div class="c-bottom">
                 <el-progress  :stroke-width="10" :show-text="false" :percentage="100" 
@@ -34,6 +35,10 @@ export default {
             default: () => {
                 return 0
             }
+        },
+        sport: {
+            type: Boolean,
+            default: false
         },
         
     },

@@ -6,7 +6,7 @@
     </div>
 </template>
 <script>
-import { getAttendschool } from "@/service/baseInfo.js";
+import { getUsage } from "@/service/baseInfo.js";
 import CommonBar from '@/views/components/CommonBar.vue'
 export default {
     name: "UseRate",
@@ -25,11 +25,12 @@ export default {
     },
     methods: {
         async getCount() {
-            const data = await getAttendschool()
+            const data = await getUsage()
             if (data) {
+                console.log(data,'----------s');
                 this.chartData = {
-                    x: data.map(item => item.gradeName),
-                    y: data.map(item => item.studentNum)
+                    x: data.map(item => item.typeName),
+                    y: data.map(item => item.percentage)
                 }
             }
         }

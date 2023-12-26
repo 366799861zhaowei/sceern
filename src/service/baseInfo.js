@@ -82,4 +82,37 @@ export function getFoodAnylise (data) {
 export function getTotal (data) {
     return axios.post(api.getTotal,data,config)
 }
+export function getNumPeopel (data) {
+    return axios.post(api.getNumPeopel,data,config)
+}
+export function getSafeCount (data) {
+    return axios.post(api.getSafeCount,data,config)
+}
+export function getFour (data) {
+    return axios.post(api.getFour,data,config)
+}
+export function getEtiquettepolite (data) {
+    return axios.post(api.getEtiquettepolite,data,config)
+}
+export function getSelf (data) {
+    return axios.post(api.getSelf,data,config)
+}
+export function getFocusactivity (data) {
+    return axios.post(api.getFocusactivity,data,config)
+}
+export function getEtiquettepoliteAndSelf (data) {
+    return axios.post(api.getEtiquettepoliteAndSelf,data,config)
+}
+export function getUsage (data) {
+    return axios.post(api.getUsage,data,config)
+}
+export function getSportStar (data) {
+    return axios.post(api.getSportStar,data,config)
+}
+export function getSportAll (data) {
+    return axios.post(api.getSportAll,data,config)
+}
+export function getSportTime (data) {
+    return axios.post(api.getSportTime,data,config)
+}
 

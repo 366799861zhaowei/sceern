@@ -29,6 +29,23 @@ const tempApis = {
         getAreaAnylise:"/jeecg-boot/dp/activity/area/student/activityarea/analyze/count",//出勤率统计
         getAreaRank:"/jeecg-boot/dp/activity/area/student/activityarea/top/count",//出勤率统计
         getAreaFrequency:"/jeecg-boot/dp/activity/area/student/activityarea/frequency/count",//出勤率统计
+        //=================================智慧数字
+        getNumPeopel:"/jeecg-boot/dp/digital/literacy/interest/course/count",//报名人数统计
+        //=================================智慧安全
+        getSafeCount:"/jeecg-boot/dp/intelligent/security/safe/education/count",//报名人数统计
+        //===============================智慧评价
+        getFour:"/jeecg-boot/dp/intelligent/evaluation/student/good/growth/count",//报名人数统计
+        getEtiquettepolite:"/jeecg-boot/dp/intelligent/evaluation/student/etiquettepolite/count",//报名人数统计
+        getSelf:"/jeecg-boot/dp/intelligent/evaluation/student/self/count",//报名人数统计
+        getFocusactivity:"/jeecg-boot/dp/intelligent/evaluation/student/focusactivity/count",//报名人数统计
+        getEtiquettepoliteAndSelf:"/jeecg-boot/dp/intelligent/evaluation/student/self/and/etiquettepolite/count",//报名人数统计
+        //==================================智慧运动
+        getUsage:"/jeecg-boot/dp/intelligent/sports/sports/area/usage/rate",//报名人数统计
+        getSportStar:"/jeecg-boot/dp/intelligent/sports/sports/eminent",//报名人数统计
+        getSportAll:"/jeecg-boot/dp/intelligent/sports/school/sports",//报名人数统计
+        getSportTime:"/jeecg-boot/dp/intelligent/sports/clazz/sports/times",//报名人数统计
+
+
     },
 };
 

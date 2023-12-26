@@ -7,28 +7,32 @@
                         <Time />
                     </Panel>
                     <Panel title="运动区域使用率">
+                        <template #right>
+                            <div>
+                                使用率(%)
+                            </div>
+                        </template>
                         <UseRate />
                     </Panel>
-                    <Panel title="出勤情况统计">
-                        <!-- <Condition /> -->
+                    <Panel title="运动达人">
+                        <SportStar />
                     </Panel>
                 </div>
             </template>
             <template #mid>
                 <Panel title="全校运动分析">
+                    <template #right>
+                            <div>
+                                运动时长
+                            </div>
+                        </template>
                         <All />
                     </Panel>
             </template>
             <template #right>
                 <div>
-                    <Panel title="今日实到人数列表">
-                        <!-- <List /> -->
-                    </Panel>
-                    <Panel title="出勤率统计">
-                        <!-- <Rate /> -->
-                    </Panel>
-                    <Panel title="出勤情况统计">
-                        <!-- <Condition /> -->
+                    <Panel title="班级活动时间">
+                        <List />
                     </Panel>
                 </div>
             </template>
@@ -40,10 +44,11 @@
 import Time from './components/Time';
 import UseRate from './components/UseRate';
 import All from './components/All';
-// import List from './components/List';
+import SportStar from './components/SportStar';
+import List from './components/List';
 export default {
     name: "Sport",
-    components: { Time, UseRate, All },
+    components: { Time, UseRate, All ,SportStar,List},
     data() {
         return {
             test:'280'

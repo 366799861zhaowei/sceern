@@ -5,8 +5,8 @@ export const mindCircleLabel = function (){
         {label:'智慧生活',value:'life'},
         {label:'智慧运动',value:'sport'},
         {label:'智慧区域活动',value:'area'},
-        {label:'智慧评价'},
-        {label:'智慧安全'},
-        {label:'数字素养提升'},
+        {label:'智慧评价',value:'evaluate'},
+        {label:'智慧安全',value:'safe'},
+        {label:'数字素养提升',value:'num'},
     ]
 } 

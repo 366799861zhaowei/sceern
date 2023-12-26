@@ -18,8 +18,11 @@
         <Food v-if="tabsValue ==='food'"/>
         <Clocking v-if="tabsValue ==='clocking'"/>
         <Life v-if="tabsValue ==='life'"/>
-        <!-- <Sport v-if="tabsValue ==='sport'"/> -->
+        <Sport v-if="tabsValue ==='sport'"/>
         <Area v-if="tabsValue ==='area'"/>
+        <Num v-if="tabsValue ==='num'"/>
+        <Safe v-if="tabsValue ==='safe'"/>
+        <Evaluate v-if="tabsValue ==='evaluate'"/>
     </div>
 </template>
   
@@ -30,10 +33,13 @@ import Clocking from '@/views/Clocking/index.vue'
 import Life from '@/views/Life/index.vue'
 import Sport from '@/views/Sport/index.vue'
 import Area from '@/views/Area/index.vue'
+import Num from '@/views/Num/index.vue'
+import Safe from '@/views/Safe/index.vue'
+import Evaluate from '@/views/Evaluate/index.vue'
 import { getTotal } from "@/service/baseInfo.js";
 export default {
     name: "index",
-    components:{Food,Clocking,Life,Area},
+    components:{Food,Clocking,Life,Area,Num,Sport,Safe,Evaluate},
     data() {
         return {
             tabsValue:'food',

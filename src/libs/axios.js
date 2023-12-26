@@ -17,10 +17,11 @@ axios.defaults.withCredentials = true; // 是否允许带cookie这些
 时定义的变量 */
 axios.interceptors.request.use(
   (config) => {
-    Vue.$loading.show(config.url);
+    // Vue.$loading.show(config.url);
     // if(config.url.indexOf("/cloud-storage/oss/")>=0){
     //     axios.defaults.baseURL = process.env.VUE_APP_BASE_URL
     // }else{
+      console.log(config,'----------------config');
     axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL;
     // }
     // const token = store.state.home.userId || getQueryVariable("userId")
@@ -58,13 +59,13 @@ axios.interceptors.request.use(
     // 	return config;
   },
   (error) => {
-    Vue.$loading.hide();
+    // Vue.$loading.hide();
     return Promise.reject(error);
   }
 );
 axios.interceptors.response.use(
   (response) => {
-    Vue.$loading.hide();
+    // Vue.$loading.hide();
     let res = response.data;
     // 请求响应后拦截
     switch (res.code) {
@@ -83,7 +84,7 @@ axios.interceptors.response.use(
     }
   },
   (error) => {
-    Vue.$loading.hide();
+    // Vue.$loading.hide();
     const response = error.response;
     const data = response && response.data;
     const message = !data ? error.message : data.msg;

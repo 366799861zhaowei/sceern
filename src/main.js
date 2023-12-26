@@ -3,7 +3,7 @@
 import Vue from "vue"
 import App from "./App"
 import router from "@/router"
-import loading from '@/libs/loading.js' // 引入loading
+// import loading from '@/libs/loading.js' // 引入loading
 import * as echarts from 'echarts';
 import "@/libs/rem.js"// 引入 移动端适配
 import dateUtil from "@/libs/dateUtil.js";
@@ -18,7 +18,7 @@ Vue.component('Layout', Layout)
 Vue.component('Panel', Panel)
 Vue.component('SearchForm', SearchForm)
 Vue.use(ElementUI)
-Vue.use(loading) // 全局使用loading
+// Vue.use(loading) // 全局使用loading
 Vue.config.productionTip = false
 Vue.prototype.$dateUtil = dateUtil
 Vue.prototype.echarts = echarts

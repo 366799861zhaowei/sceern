@@ -6,14 +6,14 @@
     </div>
 </template>
 <script>
-import { getStandardCondition } from "@/service/baseInfo.js";
+import { getSportAll } from "@/service/baseInfo.js";
 import CommonBar from '@/views/components/CommonBar.vue'
 export default {
     name: "All",
     components:{CommonBar},
     data() {
         return {
-            chartData:[],
+            chartData:{},
 
         }
     },
@@ -26,12 +26,12 @@ export default {
     },
     methods: {
         async getCount() {
-            const data = await getStandardCondition({ id:this.formVlaue.gradeId })
+            const data = await getSportAll()
             if (data) {
-                // this.chartData = {
-                //     x: data.map(item => item.gradeName),
-                //     y: data.map(item => item.studentNum)
-                // }
+                this.chartData = {
+                    x: data.map(item => item.clazzName),
+                    y: data.map(item => item.sportsTime)
+                }
             }
         }
     }
@@ -46,7 +46,7 @@ export default {
 
     .content {
         width: 100%;
-        height: 100%;
+        height: 200px;
     }
 }
 </style>

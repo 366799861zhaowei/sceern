@@ -13,7 +13,9 @@ export default {
             default: () => {
                 return []
             }
-        }
+        },
+        radius:String,
+        center:Array
     },
     data() {
         return {
@@ -78,9 +80,9 @@ export default {
                 series: [
                     {
                         type: 'pie',
-                        radius: '80%',
+                        radius: this.radius?this.radius:"80%",
                         data: this.data,
-                        center: ['50%', '50%'],
+                        center: this.center?this.center:['50%', '50%'],
                         emphasis: {
                             itemStyle: {
                                 shadowBlur: 10,
